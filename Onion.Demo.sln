@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onion.Demo.Infra.Polly", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onion.Demo.Infra.Data", "Onion.Demo.Infra.Data\Onion.Demo.Infra.Data.csproj", "{E728219A-5B1E-4C5C-A3A8-701098AF1571}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onion.Demo.Domain.Shared", "Onion.Demo.Domain.Shared\Onion.Demo.Domain.Shared.csproj", "{35E936A4-3D81-4117-B57B-3ECB1F21ADF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onion.Demo.Application.Contract", "Onion.Demo.Application.Contracts\Onion.Demo.Application.Contract.csproj", "{CE116EF9-B4C0-483B-8B10-92FFA6176A93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,14 @@ Global
 		{E728219A-5B1E-4C5C-A3A8-701098AF1571}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E728219A-5B1E-4C5C-A3A8-701098AF1571}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E728219A-5B1E-4C5C-A3A8-701098AF1571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35E936A4-3D81-4117-B57B-3ECB1F21ADF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35E936A4-3D81-4117-B57B-3ECB1F21ADF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35E936A4-3D81-4117-B57B-3ECB1F21ADF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35E936A4-3D81-4117-B57B-3ECB1F21ADF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE116EF9-B4C0-483B-8B10-92FFA6176A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE116EF9-B4C0-483B-8B10-92FFA6176A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE116EF9-B4C0-483B-8B10-92FFA6176A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE116EF9-B4C0-483B-8B10-92FFA6176A93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +86,7 @@ Global
 		{892C189A-CA0D-4418-BB7A-874CAF2C07FB} = {67176879-AA62-462C-9004-8ACF89A72B26}
 		{147EE365-8E3A-41E4-B8C0-FB0AE774EDD7} = {67176879-AA62-462C-9004-8ACF89A72B26}
 		{E728219A-5B1E-4C5C-A3A8-701098AF1571} = {66EB0EDD-0311-4B70-B774-3AFE6CA57905}
+		{35E936A4-3D81-4117-B57B-3ECB1F21ADF2} = {70CFA9F4-BB06-486A-95A9-2765383C4D28}
+		{CE116EF9-B4C0-483B-8B10-92FFA6176A93} = {3687E59D-BFBB-4C03-A3DA-1D3A62FF143C}
 	EndGlobalSection
 EndGlobal
