@@ -1,0 +1,16 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.vs
+/Onion.Demo/obj/Debug/net9.0
+/Onion.Demo/obj/Release/net9.0
+/Onion.Demo/obj
+/Onion.Demo.Application
+/Onion.Demo.Domain
+/Onion.Demo.Domain.Core
+/Onion.Demo.Infra.Data
+/Onion.Demo.Infra.EFCore/obj
+/Onion.Demo.Infra.Logging
+/Onion.Demo.Infra.Polly
+/Onion.Demo.WebApi
