@@ -13,8 +13,8 @@
 /Onion.Demo.Domain/bin
 /Onion.Demo.Domain.Core/obj/
 /Onion.Demo.Domain.Core/bin/
-/Onion.Demo.Domain.Shared/obj/
-/Onion.Demo.Domain.Shared/bin/
+/Onion.Demo.Domain.Shared/obj
+/Onion.Demo.Domain.Shared/bin
 /Onion.Demo.Infra.Data/obj/
 /Onion.Demo.Infra.Data/bin/
 /Onion.Demo.Infra.EFCore/obj
@@ -26,5 +26,5 @@
 /Onion.Demo.WebApi/obj/
 /Onion.Demo.WebApi/bin/
 /Onion.Demo.WebApi/Onion.Demo.WebApi.csproj.user
-/Onion.Demo.Application.Contracts/obj
-/Onion.Demo.Application.Contracts/obj
+/Onion.Demo.Application.Contract/obj
+/Onion.Demo.Application.Contract/obj

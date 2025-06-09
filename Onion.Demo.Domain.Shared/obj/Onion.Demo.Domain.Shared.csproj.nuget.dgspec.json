@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "G:\\OnionDemo\\Onion.Demo.Domain.Shared\\Onion.Demo.Domain.Shared.csproj": {}
+    "G:\\rep\\Demo\\Onion.Demo\\Onion.Demo.Domain.Shared\\Onion.Demo.Domain.Shared.csproj": {}
   },
   "projects": {
-    "G:\\OnionDemo\\Onion.Demo.Domain.Shared\\Onion.Demo.Domain.Shared.csproj": {
+    "G:\\rep\\Demo\\Onion.Demo\\Onion.Demo.Domain.Shared\\Onion.Demo.Domain.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\OnionDemo\\Onion.Demo.Domain.Shared\\Onion.Demo.Domain.Shared.csproj",
+        "projectUniqueName": "G:\\rep\\Demo\\Onion.Demo\\Onion.Demo.Domain.Shared\\Onion.Demo.Domain.Shared.csproj",
         "projectName": "Onion.Demo.Domain.Shared",
-        "projectPath": "G:\\OnionDemo\\Onion.Demo.Domain.Shared\\Onion.Demo.Domain.Shared.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "G:\\OnionDemo\\Onion.Demo.Domain.Shared\\obj\\",
+        "projectPath": "G:\\rep\\Demo\\Onion.Demo\\Onion.Demo.Domain.Shared\\Onion.Demo.Domain.Shared.csproj",
+        "packagesPath": "D:\\.nuget\\packages",
+        "outputPath": "G:\\rep\\Demo\\Onion.Demo\\Onion.Demo.Domain.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "F:\\VisualStudio Shared\\NuGetPackages"
+          "F:\\vs2022\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\onion\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,8 +25,6 @@
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
