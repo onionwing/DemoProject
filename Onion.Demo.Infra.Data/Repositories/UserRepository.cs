@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Onion.Demo.Infra.Data.Repository
+namespace Onion.Demo.Infra.Data.Repositories
 {
     public class UserRepository : IUserRepository
     {

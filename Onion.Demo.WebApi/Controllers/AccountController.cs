@@ -12,6 +12,7 @@ namespace Onion.Demo.WebApi.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
+
         private readonly AuthenticationService _authenticationService;
 
         public AccountController(AuthenticationService authenticationService)

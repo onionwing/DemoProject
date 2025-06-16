@@ -1,9 +1,15 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Onion.Demo.Application.Services;
+using Onion.Demo.Domain.Core;
+using Onion.Demo.Domain.Interfaces;
 using Onion.Demo.Domain.Models;
 using Onion.Demo.Infra.Data.Context;
+using Onion.Demo.Infra.Data.Repository;
 using Onion.Demo.Infra.Data.Services;
 using Onion.Demo.WebApi.Configurations;
 using System.Text;
@@ -11,8 +17,8 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.AddEFCoreConfiguration();
+
 
 //// 配置 Identity 系统
 //builder.Services.AddIdentity<User, IdentityRole>()
@@ -21,6 +27,15 @@ builder.AddEFCoreConfiguration();
 
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<AuthenticationService>();
+
+#region Autofac
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    containerBuilder.RegisterModule<AutofacModule>();
+});
+#endregion
+
 
 // 添加 JWT 认证
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

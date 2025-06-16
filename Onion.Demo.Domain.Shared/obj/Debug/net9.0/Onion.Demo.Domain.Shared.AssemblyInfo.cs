@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Onion.Demo.Domain.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03cb2cbc8263cbb52cabee83b70614b31a58154f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8b3fd4b681f677ca13aaaa287ff4900461857eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Onion.Demo.Domain.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Onion.Demo.Domain.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

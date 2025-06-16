@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Onion.Demo.Domain.Interfaces;
 using Onion.Demo.Infra.Data.Context;
 using Onion.Demo.Infra.Data.Repository;
@@ -18,10 +19,10 @@ namespace Onion.Demo.WebApi.Configurations
                 options.UseMySql(mysqlConnection, serverVersion);
 
             });
-            builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            builder.Services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+            //builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            //builder.Services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
 
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            //builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return builder;
 
