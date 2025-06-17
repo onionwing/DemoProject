@@ -43,7 +43,7 @@ namespace Onion.Demo.Infra.Data.Context
 
                     item.WithOwner().HasForeignKey("OrderId"); // 外键
 
-                    item.Property<string>("Id"); // 主键（shadow）
+                    item.Property<Guid>("Id"); // 主键（shadow）
                     item.HasKey("Id");
                     item.Property(i => i.ProductId).IsRequired();
                     item.Property(i => i.Quantity).IsRequired();

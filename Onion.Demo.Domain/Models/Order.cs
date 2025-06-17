@@ -10,7 +10,7 @@ namespace Onion.Demo.Domain.Models
     public class Order
     {
         [Key]
-        public string Id { get; private set; } = Guid.NewGuid().ToString();
+        public Guid Id { get; private set; } = Guid.NewGuid();
 
         public string CustomerId { get; private set; }
 

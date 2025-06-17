@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Onion.Demo.Application;
 using Onion.Demo.Application.Services;
-using Onion.Demo.Domain.Core;
 using Onion.Demo.Domain.Interfaces;
 using Onion.Demo.Domain.Models;
+using Onion.Demo.Infra.Data;
 using Onion.Demo.Infra.Data.Context;
-using Onion.Demo.Infra.Data.Repository;
 using Onion.Demo.Infra.Data.Services;
 using Onion.Demo.WebApi.Configurations;
 using System.Text;
@@ -25,14 +25,16 @@ builder.AddEFCoreConfiguration();
 //    .AddEntityFrameworkStores<AppDbContext>()
 //    .AddDefaultTokenProviders();
 
-builder.Services.AddScoped<JwtService>();
-builder.Services.AddScoped<AuthenticationService>();
+//builder.Services.AddScoped<JwtService>();
+//builder.Services.AddScoped<AuthenticationService>();
 
 #region Autofac
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
     containerBuilder.RegisterModule<AutofacModule>();
+    containerBuilder.RegisterModule<ApplicationAutofacModule>();
+
 });
 #endregion
 

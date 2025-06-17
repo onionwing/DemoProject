@@ -9,7 +9,7 @@ namespace Onion.Demo.Domain.Models
     public class User
     {
         [Key]
-        public string Id { get; private set; } = Guid.NewGuid().ToString();
+        public Guid Id { get; private set; } = Guid.NewGuid();
 
         public string? PhoneNumber { get; private set; }
 
@@ -33,7 +33,7 @@ namespace Onion.Demo.Domain.Models
             var salt = BCrypt.Net.BCrypt.GenerateSalt();
             User user = new User()
             {
-                Id = Guid.NewGuid().ToString(),
+                //Id = Guid.NewGuid(),
                 UserName = userName,
                 Salt = salt,
                 Password = BCrypt.Net.BCrypt.HashPassword(password, salt)

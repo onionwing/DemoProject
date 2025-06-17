@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Onion.Demo.Domain.Interfaces
 {
-    public interface IRepository<TEntity,TKey> where TEntity : class
+    public interface IRepository<TEntity>: IDisposable where TEntity : class
     {
 
-
-        Task<TEntity?> GetByIdAsync(TKey id);
+        DbSet<TEntity> GetDbSet();
+        Task<TEntity?> GetByIdAsync(Guid id);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task AddAsync(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
+
     }
 }

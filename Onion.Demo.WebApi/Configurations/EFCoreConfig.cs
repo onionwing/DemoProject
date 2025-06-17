@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Onion.Demo.Domain.Interfaces;
 using Onion.Demo.Infra.Data.Context;
-using Onion.Demo.Infra.Data.Repository;
 using Onion.Demo.Infra.Data.UnitOfWork;
 
 namespace Onion.Demo.WebApi.Configurations

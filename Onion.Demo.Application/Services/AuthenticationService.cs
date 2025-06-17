@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Onion.Demo.Domain.Interfaces;
 using Onion.Demo.Domain.Models;
-using Onion.Demo.Infra.Data.Repository;
 using Onion.Demo.Infra.Data.Services;
 using System;
 using System.Collections.Generic;

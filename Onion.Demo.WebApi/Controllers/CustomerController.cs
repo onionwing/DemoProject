@@ -10,7 +10,6 @@ namespace Onion.Demo.WebApi.Controllers
     [Route("api/[controller]")]
     public class CustomerController : ControllerBase
     {
-
         private readonly IUnitOfWork _unitOfWork;
 
         public CustomerController(IUnitOfWork unitOfWork)
@@ -18,7 +17,7 @@ namespace Onion.Demo.WebApi.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -27,7 +26,7 @@ namespace Onion.Demo.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<IActionResult> Get(Guid id)
         {
             var customer = await _unitOfWork.Customer.GetByIdAsync(id);
             if (customer == null) return NotFound();

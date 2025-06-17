@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Onion.Demo.Domain.Models;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Onion.Demo.Infra.Data.Services
 {
-    public class JwtService
+    public class JwtService 
     {
         private readonly IConfiguration _configuration;
 
@@ -42,5 +43,6 @@ namespace Onion.Demo.Infra.Data.Services
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
     }
 }

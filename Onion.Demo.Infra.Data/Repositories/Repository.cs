@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace Onion.Demo.Infra.Data.Repositories
 {
-    public class Repository<TEntity,TId> : IRepository<TEntity,TId> where TEntity : class
+    public class Repository<TEntity> :  IRepository<TEntity> where TEntity : class
     {
+
         protected readonly AppDbContext _context;
         public readonly DbSet<TEntity> _dbSet;
 
@@ -20,7 +21,7 @@ namespace Onion.Demo.Infra.Data.Repositories
             _dbSet = context.Set<TEntity>();
         }
 
-        public async Task<TEntity?> GetByIdAsync(TId id) => await _dbSet.FindAsync(id);
+        public async Task<TEntity?> GetByIdAsync(Guid id) => await _dbSet.FindAsync(id);
 
         public async Task<IEnumerable<TEntity>> GetAllAsync() => await _dbSet.ToListAsync();
 
@@ -29,5 +30,13 @@ namespace Onion.Demo.Infra.Data.Repositories
         public void Update(TEntity entity) => _dbSet.Update(entity);
 
         public void Delete(TEntity entity) => _dbSet.Remove(entity);
+
+        public DbSet<TEntity> GetDbSet()
+        {
+            return _dbSet;
+        }
+
+        public void Dispose() => _context.Dispose();
+
     }
 }

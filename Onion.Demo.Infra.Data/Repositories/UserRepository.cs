@@ -26,9 +26,12 @@ namespace Onion.Demo.Infra.Data.Repositories
             await _dbSet.AddAsync(user);
         }
 
-        public async Task<User> FindByUserNameAsync(string userName)
+        public async Task<User?> FindByUserNameAsync(string userName)
         {
             return await _dbSet.Where(o => o.UserName == userName).FirstOrDefaultAsync();
         }
+
+        public void Dispose() => _context.Dispose();
+
     }
 }

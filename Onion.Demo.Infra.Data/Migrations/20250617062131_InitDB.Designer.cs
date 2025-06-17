@@ -12,8 +12,8 @@ using Onion.Demo.Infra.Data.Context;
 namespace Onion.Demo.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250602082645_UserCanNul")]
-    partial class UserCanNul
+    [Migration("20250617062131_InitDB")]
+    partial class InitDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,10 +25,30 @@ namespace Onion.Demo.Infra.Data.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Onion.Demo.Domain.Models.Customer", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("IdentityRole");
+                });
+
+            modelBuilder.Entity("Onion.Demo.Domain.Models.Customer", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -45,8 +65,9 @@ namespace Onion.Demo.Infra.Data.Migrations
 
             modelBuilder.Entity("Onion.Demo.Domain.Models.Order", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
@@ -63,10 +84,50 @@ namespace Onion.Demo.Infra.Data.Migrations
                     b.ToTable("Orders", (string)null);
                 });
 
+            modelBuilder.Entity("Onion.Demo.Domain.Models.Permission", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Method")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Permission");
+                });
+
+            modelBuilder.Entity("Onion.Demo.Domain.Models.RolePermission", b =>
+                {
+                    b.Property<Guid?>("RoleId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("PermissionId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("RoleId1")
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("RoleId", "PermissionId");
+
+                    b.HasIndex("PermissionId");
+
+                    b.HasIndex("RoleId1");
+
+                    b.ToTable("RolePermission");
+                });
+
             modelBuilder.Entity("Onion.Demo.Domain.Models.User", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("Email")
                         .HasColumnType("longtext");
@@ -98,16 +159,15 @@ namespace Onion.Demo.Infra.Data.Migrations
                 {
                     b.OwnsMany("Onion.Demo.Domain.Models.OrderItem", "Items", b1 =>
                         {
-                            b1.Property<string>("Id")
-                                .HasColumnType("varchar(255)");
+                            b1.Property<Guid>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("char(36)");
 
-                            b1.Property<string>("OrderId")
-                                .IsRequired()
-                                .HasColumnType("varchar(255)");
+                            b1.Property<Guid>("OrderId")
+                                .HasColumnType("char(36)");
 
-                            b1.Property<string>("ProductId")
-                                .IsRequired()
-                                .HasColumnType("longtext");
+                            b1.Property<Guid>("ProductId")
+                                .HasColumnType("char(36)");
 
                             b1.Property<int>("Quantity")
                                 .HasColumnType("int");
@@ -126,6 +186,28 @@ namespace Onion.Demo.Infra.Data.Migrations
                         });
 
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("Onion.Demo.Domain.Models.RolePermission", b =>
+                {
+                    b.HasOne("Onion.Demo.Domain.Models.Permission", "Permission")
+                        .WithMany("RolePermissions")
+                        .HasForeignKey("PermissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId1");
+
+                    b.Navigation("Permission");
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("Onion.Demo.Domain.Models.Permission", b =>
+                {
+                    b.Navigation("RolePermissions");
                 });
 #pragma warning restore 612, 618
         }

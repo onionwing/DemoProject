@@ -14,15 +14,15 @@ namespace Onion.Demo.Infra.Data.UnitOfWork
     {
         private readonly AppDbContext _context;
 
-        public IRepository<Customer, string> Customer { get; }
-        public IRepository<Order,string> Order { get; }
+        public IRepository<Customer> Customer { get; }
+        public IRepository<Order> Order { get; }
         public IUserRepository User { get; }
 
 
         public UnitOfWork(AppDbContext context) {
             _context = context;
-            Customer = new Repository<Customer,string>(_context);
-            Order = new Repository<Order, string>(_context);
+            Customer = new Repository<Customer>(_context);
+            Order = new Repository<Order>(_context);
             User = new UserRepository(_context);
 
         }

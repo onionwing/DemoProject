@@ -7,7 +7,7 @@ namespace Onion.Demo.Domain.Models
     public class Customer
     {
         [Key]
-        public string Id { get; private set; } = Guid.NewGuid().ToString();
+        public Guid Id { get; private set; } = Guid.NewGuid();
 
         public string Name { get; private set; }
 

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Onion.Demo.Domain.Interfaces
 {
-    public interface IUserRepository 
+    public interface IUserRepository : IDisposable
     {
-        Task<User> FindByUserNameAsync(string userName);
+        Task<User?> FindByUserNameAsync(string userName);
         Task AddAsync(User user);
     }
 }

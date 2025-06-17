@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using Onion.Demo.Infra.Data.Repositories;
 using Onion.Demo.Domain.Interfaces;
-using Onion.Demo.Infra.Data.UnitOfWork;
+using Onion.Demo.Domain.Models;
+using Microsoft.AspNetCore.Authentication;
+using Onion.Demo.Infra.Data.Services;
 
 namespace Onion.Demo.Infra.Data
 {
@@ -9,10 +11,12 @@ namespace Onion.Demo.Infra.Data
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes() // 从程序集注册类型
-                   .AsImplementedInterfaces(); // 作为实现的接口注册
-            builder.RegisterType<Repository<>>().As<IRepository<>>();
-            //builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+            
+            builder.RegisterAssemblyTypes(typeof(UnitOfWork.UnitOfWork).Assembly) // 从程序集注册类型
+                   .AsImplementedInterfaces().InstancePerLifetimeScope(); // 作为实现的接口注册
+
+            builder.RegisterType<JwtService>().SingleInstance();
+            //builder.RegisterType<Data.UnitOfWork.UnitOfWork>().As<IUnitOfWork>();
 
         }
     }
