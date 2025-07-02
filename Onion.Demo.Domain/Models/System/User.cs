@@ -6,10 +6,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Onion.Demo.Domain.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        [Key]
-        public Guid Id { get; private set; } = Guid.NewGuid();
 
         public string? PhoneNumber { get; private set; }
 

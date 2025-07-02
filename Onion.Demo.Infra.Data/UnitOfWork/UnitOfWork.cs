@@ -16,6 +16,7 @@ namespace Onion.Demo.Infra.Data.UnitOfWork
 
         public IRepository<Customer> Customer { get; }
         public IRepository<Order> Order { get; }
+        public IRepository<Permission> Permission { get; }
         public IUserRepository User { get; }
 
 
@@ -24,6 +25,7 @@ namespace Onion.Demo.Infra.Data.UnitOfWork
             Customer = new Repository<Customer>(_context);
             Order = new Repository<Order>(_context);
             User = new UserRepository(_context);
+            Permission = new Repository<Permission>(_context);
 
         }
 

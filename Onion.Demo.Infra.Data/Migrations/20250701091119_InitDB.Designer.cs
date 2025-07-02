@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Onion.Demo.Infra.Data.Context;
 
@@ -11,9 +12,11 @@ using Onion.Demo.Infra.Data.Context;
 namespace Onion.Demo.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250701091119_InitDB")]
+    partial class InitDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,16 +227,11 @@ namespace Onion.Demo.Infra.Data.Migrations
                     b.Property<string>("RoleId1")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("varchar(255)");
-
                     b.HasKey("RoleId", "PermissionId");
 
                     b.HasIndex("PermissionId");
 
                     b.HasIndex("RoleId1");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("RolePermission");
                 });
@@ -410,15 +408,9 @@ namespace Onion.Demo.Infra.Data.Migrations
                         .WithMany()
                         .HasForeignKey("RoleId1");
 
-                    b.HasOne("Onion.Demo.Domain.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
                     b.Navigation("Permission");
 
                     b.Navigation("Role");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Onion.Demo.Domain.Models.Permission", b =>

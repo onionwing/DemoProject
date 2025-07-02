@@ -7,6 +7,8 @@ namespace Onion.Demo.Domain.Interfaces
     {
         IRepository<Customer> Customer { get; }
         IRepository<Order> Order { get; }
+        IRepository<Permission> Permission { get; }
+
         IUserRepository User { get; }
 
         Task<int> SaveAsync();

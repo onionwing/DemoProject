@@ -17,7 +17,8 @@ namespace Onion.Demo.WebApi.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        //[Authorize]
+        [Authorize]
+        //[Authorize(Policy = "DynamicPermission")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

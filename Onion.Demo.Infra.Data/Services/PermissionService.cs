@@ -12,18 +12,16 @@ namespace Onion.Demo.Infra.Data.Services
 {
     public class PermissionService : IPermissionService
     {
-        private readonly IRepository<Permission> _permission;
+        private readonly IUnitOfWork _uow;
 
-        public PermissionService(IRepository<Permission> permission)
+        public PermissionService(IUnitOfWork uow)
         {
-            _permission = permission;
+            _uow = uow;
         }
-
-
 
         public async Task<bool> UserHasAccessAsync(string path, string method, IEnumerable<string> userRoles)
         {
-            var perms = await _permission.GetDbSet()
+            var perms = await _uow.Permission.GetDbSet()
                 .Include(p => p.RolePermissions)
                     .ThenInclude(rp => rp.Role)
                 .Where(p => p.Url == path && p.Method == method)

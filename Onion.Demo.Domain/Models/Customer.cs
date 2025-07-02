@@ -9,9 +9,9 @@ namespace Onion.Demo.Domain.Models
         [Key]
         public Guid Id { get; private set; } = Guid.NewGuid();
 
-        public string Name { get; private set; }
+        public string Name { get;  set; }
 
-        public string Phone { get; private set; }
+        public string Phone { get;  set; }
 
     }
 }
