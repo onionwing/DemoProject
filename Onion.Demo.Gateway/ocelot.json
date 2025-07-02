@@ -1,0 +1,19 @@
+﻿{
+  "GlobalConfiguration": { "BaseUrl": "https://localhost:5000" },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/customer/{everything}",
+      "DownstreamPathTemplate": "/api/customer/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Get" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "DownstreamScheme": "http",
+      "AuthenticationOptions": { "AuthenticationProviderKey": "Bearer" }
+    }
+  ]
+
+}

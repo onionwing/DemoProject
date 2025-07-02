@@ -31,6 +31,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onion.Demo.Application.Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onion.Demo.Domain.Shared", "Onion.Demo.Domain.Shared\Onion.Demo.Domain.Shared.csproj", "{D6A16F0E-0A07-4223-A390-3D195E41FC18}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GateWays", "GateWays", "{614A49A1-242D-48A6-919B-8A643D93AAA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onion.Demo.Gateway", "Onion.Demo.Gateway\Onion.Demo.Gateway.csproj", "{5ECC561C-257D-4AA6-B4A3-EDE591606593}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +77,10 @@ Global
 		{D6A16F0E-0A07-4223-A390-3D195E41FC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6A16F0E-0A07-4223-A390-3D195E41FC18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6A16F0E-0A07-4223-A390-3D195E41FC18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ECC561C-257D-4AA6-B4A3-EDE591606593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ECC561C-257D-4AA6-B4A3-EDE591606593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ECC561C-257D-4AA6-B4A3-EDE591606593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ECC561C-257D-4AA6-B4A3-EDE591606593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,5 +96,6 @@ Global
 		{E728219A-5B1E-4C5C-A3A8-701098AF1571} = {66EB0EDD-0311-4B70-B774-3AFE6CA57905}
 		{439E6ADB-74A9-4EAC-BD00-31809B9D6152} = {3687E59D-BFBB-4C03-A3DA-1D3A62FF143C}
 		{D6A16F0E-0A07-4223-A390-3D195E41FC18} = {70CFA9F4-BB06-486A-95A9-2765383C4D28}
+		{5ECC561C-257D-4AA6-B4A3-EDE591606593} = {614A49A1-242D-48A6-919B-8A643D93AAA0}
 	EndGlobalSection
 EndGlobal
