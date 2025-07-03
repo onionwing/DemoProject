@@ -1,18 +1,11 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Onion.Demo.Application;
-using Onion.Demo.Application.Services;
-using Onion.Demo.Domain.Interfaces;
-using Onion.Demo.Domain.Models;
+using Onion.Demo.Infra.Consul;
 using Onion.Demo.Infra.Data;
-using Onion.Demo.Infra.Data.Context;
 using Onion.Demo.Infra.Data.Handler;
-using Onion.Demo.Infra.Data.Services;
 using Onion.Demo.WebApi.Configurations;
 using System.Text;
 
@@ -20,6 +13,7 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddEFCoreConfiguration();
+builder.AddConsulConfiguration();
 
 
 //// ≈‰÷√ Identity œµÕ≥

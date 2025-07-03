@@ -1,16 +1,27 @@
 ﻿{
-  "GlobalConfiguration": { "BaseUrl": "https://localhost:5000" },
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5000",
+    "ServiceDiscoveryProvider": {
+      //Consul地址
+      "Host": "localhost",
+      //Consul端口
+      "Port": 8500,
+      "Type": "Consul" //由Consul提供服务发现，每次请求Consul
+    }
+  },
   "Routes": [
     {
       "UpstreamPathTemplate": "/customer/{everything}",
       "DownstreamPathTemplate": "/api/customer/{everything}",
-      "UpstreamHttpMethod": [ "Post", "Get" ],
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5001
-        }
-      ],
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5001
+      //  }
+      //],
+      "UseServiceDisConvery": true, //使用服务发现
+      "ServiceName": "demo-service", //Consul服务名称
       "DownstreamScheme": "http",
       "AuthenticationOptions": { "AuthenticationProviderKey": "Bearer" }
     }

@@ -9,7 +9,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Onion.Demo.Application\Onion.Demo.Application.csproj" />
     <ProjectReference Include="..\Onion.Demo.Infra.Logging\Onion.Demo.Infra.Logging.csproj" />
-    <ProjectReference Include="..\Onion.Demo.Infra.Polly\Onion.Demo.Infra.Polly.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Consul;
+using Ocelot.Provider.Polly;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 // 加载 ocelot.json
 builder.Configuration.AddJsonFile("ocelot.json", optional: false);
 // 注册 Ocelot
-builder.Services.AddOcelot();
+builder.Services.AddOcelot(builder.Configuration)
+    .AddConsul()
+    .AddPolly()
+    ;
+
+
 
 // 添加 JWT 认证
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
