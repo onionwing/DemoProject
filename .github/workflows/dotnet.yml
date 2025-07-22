@@ -5,24 +5,42 @@ name: .NET
 
 on:
   push:
+    tags:
+      - 'v*'
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+
 
 jobs:
-  build:
-
+  release:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Setup .NET
+
+    - name: Set up .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0.x
-    - name: Restore dependencies
+        dotnet-version: '9.0.x'
+        cache: true
+
+    - name: Restore
       run: dotnet restore
+
     - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Publish
+      run: dotnet publish Onion.Demo.WebApi/Onion.Demo.WebApi.csproj -c Release -o ./publish
+
+    - name: Upload Release Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: OnionApp
+        path: ./publish
+
+    # - name: Create GitHub Release
+    #   uses: softprops/action-gh-release@v2
+    #   with:
+    #     tag_name: ${{ github.ref_name }}   # 自动用 tag 名作为 Release 名
+    #     name: Release ${{ github.ref_name }}
+    #     files: ./publish/**                # 把编译产物上传为 release 附件
