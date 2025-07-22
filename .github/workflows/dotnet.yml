@@ -38,9 +38,9 @@ jobs:
         name: OnionApp
         path: ./publish
 
-    # - name: Create GitHub Release
-    #   uses: softprops/action-gh-release@v2
-    #   with:
-    #     tag_name: ${{ github.ref_name }}   # 自动用 tag 名作为 Release 名
-    #     name: Release ${{ github.ref_name }}
-    #     files: ./publish/**                # 把编译产物上传为 release 附件
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ github.ref_name }}   # 自动用 tag 名作为 Release 名
+        name: Release ${{ github.ref_name }}
+        files: ./publish/**                # 把编译产物上传为 release 附件
