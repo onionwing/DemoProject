@@ -35,14 +35,12 @@ jobs:
       run: dotnet publish Onion.Demo.WebApi/Onion.Demo.WebApi.csproj -c Release -o ./publish
 
     - name: Zip publish folder
-      run: |
-        cd ./publish
-        zip -r ../onionApp.zip ./
-        cd ..
-
+      run: zip -r onionApp.zip publish
+    
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
         tag_name: ${{ github.ref_name }}
         name: Release ${{ github.ref_name }}
-        files: onionApp.zip  
+        files: onionApp.zip
+        generate_release_notes: false
